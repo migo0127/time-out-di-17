@@ -1,0 +1,11 @@
+{
+  "routes": [
+    "/login",
+    "/pages",
+    "/pages/home",
+    "/pages/product",
+    "/register",
+    "/register/step-1",
+    "/register/step-2"
+  ]
+}
