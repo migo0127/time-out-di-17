@@ -1,0 +1,31 @@
+@defer {
+  <h3 mat-dialog-title> {{ data.title || '系統通知' }}</h3>
+  <mat-dialog-content>
+    <span>{{ data.content || '系統異常' }}</span>
+
+  </mat-dialog-content>
+  <mat-dialog-actions>
+    @if(data.customAction){
+      <button
+        type="button"
+        mat-flat-button
+        color="accent"
+        class="w-100"
+        (click)="data.callback()"
+        >
+        {{ data.button || '確認' }}
+      </button>
+    }@else{
+      <button
+        type="button"
+        mat-flat-button
+        color="accent"
+        class="w-100"
+        [mat-dialog-close]="!data.isFalseButton"
+        >
+        {{ data.button || '確認' }}
+      </button>
+    }
+  </mat-dialog-actions>
+
+}

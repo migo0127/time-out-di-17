@@ -1,0 +1,16 @@
+
+<h1>Home Page
+  @if(afk()){
+    <span>{{ (afk() | number: '1.0-0') }}</span>
+  }
+</h1>
+
+<ul>
+  <li (click)="pauseTimer()">Pause Timer</li>
+  <li (click)="reStartTimer()">Restart Timer</li>
+  <li (click)="reSetTimer()">Reset Timer</li>
+  <li (click)="goToPage('product')">Product</li>
+</ul>
+
+<!-- <button type="button" (click)="pauseTime()">Pause Time</button>
+<button type="button" (click)="reStartTme()">ReStart Time</button> -->

@@ -1,0 +1,57 @@
+@if(loginForm){
+  <section id="login-section">
+    <form
+      [formGroup]="loginForm"
+      class="flex-column-center login-form"
+      >
+      <h1>Login Form</h1>
+
+      <mat-form-field>
+        <mat-label>Account</mat-label>
+        <input
+          type="text"
+          matInput
+          formControlName="acc"
+          placeholder="Ex. A123456789"
+          >
+        @if(accControl()?.touched && accControl()?.hasError('required')){
+          <mat-error>
+            Account is <strong>required</strong>
+          </mat-error>
+        }
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width">
+        <mat-label>Password</mat-label>
+        <input
+          type="password"
+          matInput
+          formControlName="pwd"
+          placeholder="Ex. •••••"
+          >
+        @if(pwdControl()?.touched && pwdControl()?.hasError('required')){
+          <mat-error>
+            Password is <strong>required</strong>
+          </mat-error>
+        }
+      </mat-form-field>
+      <div class="flex-center btns--wrap">
+        <button
+            mat-raised-button
+            color="primary"
+            (click)="login()"
+            >
+            Submit
+          </button>
+
+          <a
+            href="#"
+            (click)="registerPage($event)"
+            >
+            Register
+          </a>
+      </div>
+    </form>
+  </section>
+}
+

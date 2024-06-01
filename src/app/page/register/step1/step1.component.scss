@@ -1,0 +1,82 @@
+@use '../../../../assets/scss/_variables.scss' as colors;
+
+$progressHeight: 28px;
+
+:host ::ng-deep mat-progress-bar {
+  height: $progressHeight;
+
+  .mdc-linear-progress__bar,
+  .mdc-linear-progress__buffer {
+    height: $progressHeight;
+  }
+
+  .mdc-linear-progress__bar-inner {
+    border-top-width: $progressHeight;
+  }
+}
+
+#register-section {
+  width: 100%;
+
+  .register-form {
+    width: 80%;
+    max-width: 500px;
+    min-width: 290px;
+    height: 40vh;
+    max-height: 480px;
+    min-height: 450px;
+    margin: 10vh auto;
+    border: 1px solid #ccc;
+    mat-form-field {
+      width: 85%;
+      margin: .25rem 0;
+    }
+    .btns--wrap {
+      width: 85%;
+      margin-top: 1rem;
+      justify-content: flex-end !important;
+      & button{
+        width: 50%;
+      }
+      & a{
+        width: 30%;
+        display: block;
+        text-align: right;
+        color: colors.$accent;
+        &:hover {
+          transform: translateY(-2px);
+        }
+      }
+    }
+
+    .otp-wrap {
+      width: 85%;
+      display: grid;
+      grid-template-columns: .8fr .2fr;
+      justify-content: space-around;
+      align-items: center;
+
+      mat-form-field {
+        width: 95%;
+        min-width: 190px;
+      }
+    }
+
+    .progress-wrap {
+      position: relative;
+      width: 85%;
+      margin: 1rem 0;
+
+      .progress-value {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translateY(-50%);
+      }
+    }
+
+    .text--white {
+      color: rgb(236, 236, 236);
+    }
+  }
+}

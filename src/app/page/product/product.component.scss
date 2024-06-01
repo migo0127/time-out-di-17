@@ -1,0 +1,16 @@
+@use '../../../assets/scss/_variables.scss' as colors;
+
+#product-section {
+  width: 100%;
+  margin: 1rem;
+
+  .product-form {
+    display: flex;
+    align-items: center;
+
+    mat-form-field {
+      margin-right: .5rem;
+    }
+  }
+  
+}

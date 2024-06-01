@@ -1,0 +1,39 @@
+@if(afk()){
+  <section>
+    <h3 mat-dialog-title> {{ data.title || '系統通知' }}</h3>
+    <mat-dialog-content>
+      @if(idleTime() && afk()){
+        <span>
+          您的閒置時間已過 {{ idleTime() | number: '1.0-0' }} 分鐘，程式將在 {{ afk() | number: '1.0-0' }} 秒後自動登出，如要繼續使用，請點選「繼續使用」。
+        </span>
+      }@else {
+        <span>
+          您的閒置時間過久，程式將在幾秒後自動登出，如要繼續使用，請點選「繼續使用」。
+        </span>
+      }
+    </mat-dialog-content>
+    <mat-dialog-actions>
+      @if(data.customAction){
+        <button
+          type="button"
+          mat-flat-button
+          color="accent"
+          class="w-100"
+          (click)="data.callback()"
+          >
+          {{ data.button || '確認' }}
+        </button>
+      }@else {
+        <button
+          type="button"
+          mat-flat-button
+          color="accent"
+          class="w-100"
+          [mat-dialog-close]="!data.isFalseButton"
+          >
+          {{ data.button || '確認' }}
+        </button>
+      }
+    </mat-dialog-actions>
+  </section>
+}

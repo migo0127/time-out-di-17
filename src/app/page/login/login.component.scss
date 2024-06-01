@@ -1,0 +1,38 @@
+@use '../../../assets/scss/_variables.scss' as colors;
+
+#login-section {
+  width: 100%;
+
+  .login-form {
+    width: 80%;
+    max-width: 500px;
+    min-width: 290px;
+    height: 40vh;
+    max-height: 400px;
+    min-height: 400px;
+    margin: 10vh auto;
+    border: 1px solid #ccc;
+    mat-form-field {
+      width: 85%;
+      margin: .25rem 0;
+    }
+    .btns--wrap {
+      width: 85%;
+      margin-top: 1rem;
+      justify-content: flex-end !important;
+      & button{
+        width: 50%;
+      }
+      & a{
+        width: 30%;
+        display: block;
+        text-align: right;
+        color: colors.$accent;
+        &:hover {
+          transform: translateY(-2px);
+        }
+      }
+    }
+
+  }
+}

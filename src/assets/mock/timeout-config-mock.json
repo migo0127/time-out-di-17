@@ -1,0 +1,8 @@
+{
+  "returnCode": "C0000",
+  "returnMsg": "Success",
+  "returnData": {
+    "idleLimit": 30,
+    "idleWarning": 12
+  }
+}

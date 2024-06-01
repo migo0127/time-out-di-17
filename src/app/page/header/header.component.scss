@@ -1,0 +1,25 @@
+#header-section {
+  width: 100vw;
+  height: 10vh;
+  max-height: 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1.25rem;
+  background-color: #5b6fdf;
+
+  div {
+    padding: 0 5rem;
+    color: #fff;
+
+    span {
+      color: #fff;
+      padding: 0 .5rem;
+
+      a {
+        color: #fff;
+      }
+    }
+
+  }
+}

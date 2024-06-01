@@ -1,0 +1,92 @@
+@if(registerForm){
+  <section id="register-section">
+    <form
+      [formGroup]="registerForm"
+      class="flex-column-center register-form"
+      >
+      <h1>Register Form</h1>
+
+      <mat-form-field>
+        <mat-label>Phone</mat-label>
+        <input
+          type="text"
+          matInput
+          formControlName="phone"
+          placeholder="Ex. 09123456789"
+          >
+        @if(phoneCodeControl()?.touched && phoneCodeControl()?.hasError('required')){
+          <mat-error>
+            Phone is <strong>required</strong>
+          </mat-error>
+        }
+      </mat-form-field>
+
+      <div class="otp-wrap">
+        <mat-form-field>
+          <mat-label>OTP</mat-label>
+          <input
+            type="text"
+            matInput
+            formControlName="otpCode"
+            placeholder="Ex. 123456"
+            >
+          @if(otpCodeControl()?.touched && otpCodeControl()?.hasError('required')){
+            <mat-error>
+              OTP code is <strong>required</strong>
+            </mat-error>
+          }
+        </mat-form-field>
+        <button
+          type="button"
+          mat-raised-button
+          color="primary"
+          [disabled]="disableResend() || phoneCodeControl()?.invalid"
+          (click)="sendOTP()"
+
+          >
+          @if(resendSec() >= 0 && resendSec() < 5){
+            {{ (5 - resendSec()) + 's' }}
+          }@else {
+            {{ isResendOTP() ? 'Resend' : 'Send' }}
+          }
+        </button>
+      </div>
+
+      @if(isResendOTP()){
+        <div
+          [ngClass]="{
+            'progress-wrap': true,
+            'text--white':  progressValue() > 55
+          }">
+          <mat-progress-bar
+            color="primary"
+            [mode]="mode"
+            [value]="progressValue()"
+            [bufferValue]="bufferValue">
+          </mat-progress-bar>
+          <span class="progress-value">
+            {{ progressMinute() }}
+          </span>
+        </div>
+      }
+
+      <div class="flex-center btns--wrap">
+        <button
+            mat-raised-button
+            color="primary"
+            (click)="sendRegister()"
+            [disabled]="registerForm.invalid"
+            >
+            Register
+          </button>
+
+          <a
+            href="#"
+            (click)="loginPage($event)"
+            >
+            Login
+          </a>
+      </div>
+    </form>
+  </section>
+}
